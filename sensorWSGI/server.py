@@ -1,4 +1,5 @@
 import json
+import requests
 from flask import Flask, jsonify   
 from flask import render_template
 app = Flask(__name__)
@@ -16,24 +17,18 @@ app = Flask(__name__)
 
 
 @app.route("/")
-def sensor(name=None):
-     return render_template('MedSensorRasp.html')
+def sensor():
+    result = request.get('./templates/MedSensorRasp.html')
+    return result.content
+    #return "Teste de conexao"
      
 
 #@app.route("/sensor")
-#def medidas():
+#def medidas(name=Nome):
 #    import SensorApp
 #    return render_template('MedSensorRasp.html')
 
-@app.route('/sensor', methods=['GET', 'POST'])
-def control():
-    if request.method == 'POST':
-        val = int(request.form['MedSensorRasp.html'])
-        current_states = states[:]
-        current_states[val] = not current_states[val]
-        return render_template('MedSensorRasp.html', states=current_states)
-    else:
-        return render_template('MedSensorRasp.html', states=states)
+
 
 #@app.route('/hello/<name>')
 #def hello(name):

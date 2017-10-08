@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html>
-<head>
-   <title>Teste de conexão do sensor</title>
-</head>
-<body>
-  Blog do {{nome}}
-
- <br>Posts Recentes<br>
-
-  {%for posts in posts%}
-  <br>
-  {{posts}}
-  {% endfor %}
-
-</body>
+<html>	
+	<head>
+	   <meta charset="utf-8">
+	   <link rel="stylesheet" href="estilo.css">
+	   <title>Medidas sensor</title>
+   	   <meta http-equiv="refresh" content="1; url=index.html">
+	</head>
+	
+	<body>  
+	 <div class="container">
+ 	   <br>Página >>></br>
+	   <br>Leituras do sensor em tempo real<br>
+	   <iframe src ="sensor.html" width="400" height="35" scrolling="yes"></iframe>	
+	 </div>
+	</body>
 </html>

@@ -7,7 +7,7 @@ GPIO.setmode(GPIO.BCM)
 TRIG = 23
 ECHO = 24
 
-contador = 0
+contador = 1
 
 print "Distância de medição em processo..."
 
@@ -17,11 +17,9 @@ GPIO.setup(ECHO, GPIO.IN)
 GPIO.output(TRIG, False)
 print "Aguardando resposta do sensor..."
 
-arq = open("./templates/MedSensorRasp.html", "w")
-while (contador < 10 ):
 
-    
-    
+while (contador < 1000 ):
+    arq = open("./templates/sensor.html", "w")
     GPIO.output(TRIG, True)
     time.sleep(0.00001)
     GPIO.output(TRIG, False)
@@ -37,19 +35,21 @@ while (contador < 10 ):
     distance = pulse_duration * 17150
 
     distance = round(distance, 2)
+    arq.write("{\n\"sequencia\":" + str(contador) + "\n");
+    arq.write("\n\"medida\": " + str(distance) + "\n}");
     
-    arq.write("Medida " + str(contador) + " - " + str(distance) +" cm<br>")
-    arq.write("\n")
-
+    #arq.write("Medida " + str(contador) + " - " + str(distance) +" cm<br>")
+    #arq.write("\n")
+    arq.close()
     medida = distance
              
-    print "Distância do obstáculo: ",distance," cm"
-    time.sleep(0.5)
+    print "",contador," - Distância do obstáculo: ",distance," cm"
+    time.sleep(2)
     contador = contador + 1
+    
     
 
 
-arq.close()
 GPIO.cleanup()
 
 
