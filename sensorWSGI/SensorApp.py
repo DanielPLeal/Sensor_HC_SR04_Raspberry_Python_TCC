@@ -19,7 +19,7 @@ print "Aguardando resposta do sensor..."
 
 
 while (contador < 1000 ):
-    arq = open("./templates/sensor.html", "w")
+    arq = open("./templates/sensor.js", "w")
     GPIO.output(TRIG, True)
     time.sleep(0.00001)
     GPIO.output(TRIG, False)
@@ -35,7 +35,7 @@ while (contador < 1000 ):
     distance = pulse_duration * 17150
 
     distance = round(distance, 2)
-    arq.write("{\n\"sequencia\":" + str(contador) + "\n");
+    arq.write("{\n\"id\":" + str(contador) + "\n");
     arq.write("\n\"medida\": " + str(distance) + "\n}");
     
     #arq.write("Medida " + str(contador) + " - " + str(distance) +" cm<br>")
