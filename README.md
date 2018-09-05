@@ -1,5 +1,5 @@
 # Sensor HC-SR04 Utilizando o Raspberry - linguagem Python -TCC Faculdade Ciência da Computação
-colaboração https://github.com/wdougherty
+colaboração https://github.com/devwdougherty
 
 # ------------
 Trabalho acadêmico, desenvolvimento de um sistema de captação de distâncias utilizando o sensor HC-SR04, podendo ser adaptado para necessidades do dia-a-dia.
